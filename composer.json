@@ -1,0 +1,20 @@
+{
+    "name": "italystrap/cron",
+    "description": "ItalyStrap Cron Class",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "overclokk",
+            "email": "info@overclokk.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ItalyStrap\\Cron\\": "src/Cron/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {},
+    "require-dev": {}
+}
