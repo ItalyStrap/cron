@@ -18,6 +18,9 @@ use ItalyStrap\Config\Config;
 
 /**
  * Class Cron
+ * https://github.com/WPBP/CronPlus/blob/master/cronplus.php
+ * https://github.com/devgeniem/wp-cron-runner/blob/master/plugin.php
+ * https://github.com/wpsmith/Cron/blob/master/src/WP_Cron.php
  */
 class Cron {
 
@@ -33,8 +36,8 @@ class Cron {
 	 */
 	public function __construct( Config $config ) {
 		$this->config = $config;
-		$this->plugin = $this->config['plugin'];
-		$this->cron = $this->plugin['cron'];
+		// $this->plugin = $this->config['plugin'];
+		// $this->cron = $this->plugin['cron'];
 	}
 
 	/**
