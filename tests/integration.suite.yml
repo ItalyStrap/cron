@@ -1,0 +1,16 @@
+actor: IntegrationTester
+suite_namespace: ItalyStrap\Cron\Tests\Integration
+path: integration
+bootstrap: _bootstrap.php
+modules:
+    enabled:
+        - lucatume\WPBrowser\Module\WPLoader
+    config:
+        lucatume\WPBrowser\Module\WPLoader:
+            wpRootFolder: "%WP_ROOT_DIR%"
+            dbUrl: "%WP_DB_URL%"
+            tablePrefix: test_
+            domain: localhost
+            adminEmail: admin@example.com
+            title: Cron Test
+            theme: cron-test

@@ -1,1 +1,9 @@
-/vendor/
+# Directories
+/vendor
+/tests/_output/*
+!/tests/_output/.gitkeep
+/tests/_support/_generated
+/tests/_wordpress
+
+# Files
+/composer.lock

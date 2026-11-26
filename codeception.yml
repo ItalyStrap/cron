@@ -1,0 +1,13 @@
+namespace: ItalyStrap\Cron\Tests
+support_namespace: Support
+paths:
+    tests: tests
+    output: tests/_output
+    data: tests/_data
+    support: tests/_support
+actor_suffix: Tester
+settings:
+    colors: true
+    memory_limit: 1024M
+params:
+    - tests/params.php

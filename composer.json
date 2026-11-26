@@ -1,22 +1,89 @@
 {
     "name": "italystrap/cron",
-    "description": "ItalyStrap Cron Class",
+    "description": "Schedule the recurring and the single events, with an in-memory scheduler and the WP-Cron one",
+    "keywords": ["cron", "scheduler", "wp-cron", "wordpress"],
     "type": "library",
     "license": "GPL-2.0-or-later",
     "authors": [
         {
-            "name": "overclokk",
-            "email": "info@overclokk.net"
+            "name": "Enea Overclokk",
+            "email": "info@overclokk.net",
+            "homepage": "https://www.italystrap.com",
+            "role": "Developer"
         }
     ],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.2",
+        "psr/clock": "^1.0"
+    },
+    "require-dev": {
+        "codeception/codeception": "^5.1",
+        "codeception/module-asserts": "^3.0",
+        "italystrap/event": "^0.2.2",
+        "lucatume/wp-browser": "^4.4",
+        "php-stubs/wordpress-stubs": "^6.8",
+        "phpstan/phpstan": "^2.1",
+        "rector/rector": "^2.0",
+        "symplify/easy-coding-standard": "^12.5"
+    },
+    "suggest": {
+        "italystrap/event": "Add the custom recurrences to WP-Cron with the GlobalRecurrences subscriber"
+    },
     "autoload": {
         "psr-4": {
-            "ItalyStrap\\Cron\\": "src/Cron/"
+            "ItalyStrap\\Cron\\": "src/"
         }
     },
-    "minimum-stability": "dev",
-    "require": {
-        "php": "^5.3 || ^5.4 || ^5.5 || ^5.6 || ^7.0",
-        "italystrap/config": "^1.0"
+    "autoload-dev": {
+        "psr-4": {
+            "ItalyStrap\\Cron\\Tests\\": "tests/src/",
+            "ItalyStrap\\Cron\\Tests\\Support\\": "tests/_support/",
+            "ItalyStrap\\Cron\\Tests\\Unit\\": "tests/unit/",
+            "ItalyStrap\\Cron\\Tests\\Integration\\": "tests/integration/"
+        }
+    },
+    "scripts": {
+        "wp:setup": [
+            "@php tests/bin/setup-wordpress.php"
+        ],
+        "test": [
+            "@unit",
+            "@integration"
+        ],
+        "unit": [
+            "@php vendor/bin/codecept run unit"
+        ],
+        "integration": [
+            "@php vendor/bin/codecept run integration"
+        ],
+        "stan": [
+            "@php vendor/bin/phpstan analyse"
+        ],
+        "ecs": [
+            "@php vendor/bin/ecs check"
+        ],
+        "ecs:fix": [
+            "@php vendor/bin/ecs check --fix"
+        ],
+        "rector": [
+            "@php vendor/bin/rector process --dry-run"
+        ],
+        "rector:fix": [
+            "@php vendor/bin/rector process"
+        ],
+        "qa": [
+            "@ecs",
+            "@stan",
+            "@test"
+        ]
+    },
+    "support": {
+        "issues": "https://github.com/ItalyStrap/cron/issues",
+        "source": "https://github.com/ItalyStrap/cron"
+    },
+    "config": {
+        "sort-packages": true
     }
 }
