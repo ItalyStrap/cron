@@ -96,4 +96,4 @@ composer qa         # ECS, PHPStan, the unit and the integration tests
 
 ## License
 
-GPL-2.0-or-later, see [LICENSE](LICENSE).
+MIT, see [LICENSE](LICENSE).
