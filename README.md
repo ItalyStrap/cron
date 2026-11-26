@@ -21,7 +21,7 @@ It requires PHP 8.2. The time comes from a [PSR-20](https://www.php-fig.org/psr/
 
 ## Basic Usage
 
-A `RecurringEvent` runs again after each interval of its recurrence. `keepScheduled()` schedules it when it is missing, like after a migration of the site, so call it on every request, on `init` for WordPress:
+A `RecurringEvent` runs again after each interval of its recurrence. `scheduleIfMissing()` schedules it when it is missing, like after a migration of the site, so call it on every request, on `init` for WordPress:
 
 ```php
 use ItalyStrap\Cron\GlobalScheduler;
@@ -30,7 +30,7 @@ use ItalyStrap\Cron\SystemClock;
 
 $cleanup = new RecurringEvent('my_plugin_cleanup', new GlobalScheduler(), new SystemClock());
 
-add_action('init', static fn() => $cleanup->keepScheduled('daily'));
+add_action('init', static fn() => $cleanup->scheduleIfMissing('daily'));
 add_action('my_plugin_cleanup', static function (): void {
     // Delete the old records.
 });

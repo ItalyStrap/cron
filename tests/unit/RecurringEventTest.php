@@ -19,7 +19,7 @@ final class RecurringEventTest extends Unit
     {
         $sut = $this->makeInstance(3600);
 
-        $sut->keepScheduled('daily');
+        $sut->scheduleIfMissing('daily');
 
         $this->assertTrue($sut->isScheduled());
         $this->assertSame(self::NOW + 3600, $this->scheduler->nextRun('my_event'));
@@ -30,7 +30,7 @@ final class RecurringEventTest extends Unit
     {
         $this->scheduler->scheduleRecurring('my_event', 42, 'hourly');
 
-        $this->makeInstance()->keepScheduled('daily');
+        $this->makeInstance()->scheduleIfMissing('daily');
 
         $this->assertSame(42, $this->scheduler->nextRun('my_event'));
         $this->assertSame('hourly', $this->scheduler->recurrence('my_event'));
@@ -40,7 +40,7 @@ final class RecurringEventTest extends Unit
     {
         $sut = $this->makeInstance();
 
-        $sut->keepScheduled(RecurringEvent::OFF);
+        $sut->scheduleIfMissing(RecurringEvent::OFF);
 
         $this->assertFalse($sut->isScheduled());
     }

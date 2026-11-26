@@ -42,7 +42,7 @@ final readonly class RecurringEvent
     /**
      * Schedules the event when it is missing, it does nothing when the recurrence is off.
      */
-    public function keepScheduled(string $recurrence): void
+    public function scheduleIfMissing(string $recurrence): void
     {
         if ($recurrence === self::OFF || $this->isScheduled()) {
             return;

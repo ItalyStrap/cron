@@ -50,7 +50,7 @@ final class GlobalSchedulerTest extends WPTestCase
         \add_filter(GlobalRecurrences::EVENT_NAME, $recurrences->add(...));
         $sut = new RecurringEvent('my_event', new GlobalScheduler(), new SystemClock());
 
-        $sut->keepScheduled('monthly_test');
+        $sut->scheduleIfMissing('monthly_test');
 
         $this->assertSame(
             [
