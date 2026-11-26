@@ -16,6 +16,10 @@ $wpRootDir = \dirname(__DIR__) . '/_wordpress';
 $dataDir = $wpRootDir . '/data';
 
 if (!\is_file($wpRootDir . '/wp-includes/version.php')) {
+    if (!\is_dir($wpRootDir)) {
+        \mkdir($wpRootDir, 0777, true);
+    }
+
     Installation::scaffold($wpRootDir);
 }
 
