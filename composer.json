@@ -3,7 +3,7 @@
     "description": "Schedule the recurring and the single events, with an in-memory scheduler and the WP-Cron one",
     "keywords": ["cron", "scheduler", "wp-cron", "wordpress"],
     "type": "library",
-    "license": "GPL-2.0-or-later",
+    "license": "MIT",
     "authors": [
         {
             "name": "Enea Overclokk",
